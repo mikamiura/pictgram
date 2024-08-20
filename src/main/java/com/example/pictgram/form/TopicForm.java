@@ -1,5 +1,7 @@
 package com.example.pictgram.form;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.pictgram.validation.constraints.ImageByte;
@@ -8,6 +10,7 @@ import com.example.pictgram.validation.constraints.ImageNotEmpty;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+
 
 @Data
 public class TopicForm {
@@ -29,5 +32,10 @@ public class TopicForm {
     private String description;
 
     private UserForm user;
+    
+    private List<FavoriteForm> favorites;
+    
+    private FavoriteForm favorite;
+
 
 }

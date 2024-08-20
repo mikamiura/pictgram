@@ -1,6 +1,9 @@
 package com.example.pictgram.controller;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +24,8 @@ import com.example.pictgram.repository.UserRepository;
 public class UsersController {
 
 	@Autowired
+	private MessageSource messageSource;
+	@Autowired
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private UserRepository repository;
@@ -33,15 +38,15 @@ public class UsersController {
 
 	@PostMapping("/user")
 	public String create(@Validated @ModelAttribute("form") UserForm form, BindingResult result, Model model,
-			RedirectAttributes redirAttrs) {
+			RedirectAttributes redirAttrs, Locale locale) {
 
 		String name = form.getName();
 		String email = form.getEmail();
 		String password = form.getPassword();
 
 		if (repository.findByUsername(email) != null) {
-			FieldError fieldError = new FieldError(result.getObjectName(), "email", "その E メールはすでに使用されています。");
-			result.addError(fieldError);
+			FieldError fieldError = new FieldError(result.getObjectName(), "email",
+					messageSource.getMessage("users.create.error.1", new String[] {}, locale));
 		}
 		if (result.hasErrors()) {
 			model.addAttribute("hasMessage", true);
@@ -54,7 +59,7 @@ public class UsersController {
 		repository.saveAndFlush(entity);
 		model.addAttribute("hasMessage", true);
 		model.addAttribute("class", "alert-info");
-		model.addAttribute("message", "ユーザー登録が完了しました。");
+		model.addAttribute("message", messageSource.getMessage("users.create.flash.1", new String[] {}, locale));
 		return "layouts/complete";
 	}
 }
