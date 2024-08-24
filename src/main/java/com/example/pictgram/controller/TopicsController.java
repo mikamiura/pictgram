@@ -19,10 +19,6 @@ import org.apache.sanselan.Sanselan;
 import org.apache.sanselan.common.IImageMetadata;
 import org.apache.sanselan.formats.jpeg.JpegImageMetadata;
 import org.apache.sanselan.formats.tiff.TiffImageMetadata.GPSInfo;
-<<<<<<< HEAD
-import org.hibernate.boot.Metadata;
-=======
->>>>>>> topic/10
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,11 +41,8 @@ import org.thymeleaf.context.Context;
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.imaging.ImageProcessingException;
 import com.drew.metadata.Directory;
-<<<<<<< HEAD
-=======
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
->>>>>>> topic/10
 import com.example.pictgram.entity.Comment;
 import com.example.pictgram.entity.Favorite;
 import com.example.pictgram.entity.Topic;
