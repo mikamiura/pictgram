@@ -26,19 +26,10 @@ public class TopicForm {
 
 	private String path;
 
-<<<<<<< HEAD
-    @NotEmpty
-    @Size(max = 1000)
-    private String description;
-    
-    private Double latitude;
-    
-    private Double longitude;
-=======
+
 	@NotEmpty
 	@Size(max = 1000)
 	private String description;
->>>>>>> topic/10
 
 	private Double latitude;
 
