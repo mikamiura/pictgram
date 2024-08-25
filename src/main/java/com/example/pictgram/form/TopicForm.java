@@ -10,7 +10,7 @@ import com.example.pictgram.validation.constraints.ImageNotEmpty;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-//プルリクのテスト
+
 @Data
 public class TopicForm {
 
