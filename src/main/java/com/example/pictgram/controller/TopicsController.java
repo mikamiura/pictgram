@@ -146,6 +146,8 @@ public class TopicsController {
 			list.add(form);
 		}
 		model.addAttribute("list", list);
+		
+		model.addAttribute("hasFooter", true);
 
 		return "topics/index";
 	}
